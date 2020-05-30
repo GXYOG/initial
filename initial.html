@@ -3,8 +3,164 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <script src="jquery.js"></script>
 </head>
+<style>
+  body {
+    background: tomato;
+  }
+
+  .overflow-hide {
+    height: 60px;
+    width: 190px;
+    display: block;
+    margin: 150px auto;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .button {
+    height: 60px;
+    width: 180px;
+    text-align: center;
+    line-height: 1.8;
+    color: white;
+    display: block;
+    position: relative;
+    background-color: #105f98;
+    margin: 0 auto;
+    transform: translateY(30px);
+    transition: transform 200ms ease-in-out;
+  }
+
+  .button:hover {
+    transform: translateY(0);
+  }
+
+  .test {
+    width: 300px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .xia {
+    width: 200px;
+    height: 80px;
+    background: #105f98;
+    transform: translateY(40px);
+    transition: transform 200ms ease 200ms;
+  }
+
+  .xia:hover {
+    transform: translateY(0);
+  }
+
+</style>
 <body>
-  <div>测试</div>
+<div class="overflow-hide">
+  <div class="hole"></div>
+  <div class="button">窗前明月光，疑是地上霜。举头望明月，低头思故乡。</div>
+</div>
+
+<div class="test">
+  <div class="xia">下拉</div>
+</div>
+
+<div class="cb" data-id="110" data-name="gx"></div>
 </body>
 </html>
+
+<script>
+
+  class Animal {
+    constructor(name = 'gx', color = 'black') {
+      this.name = name;
+      this.color = color;
+    }
+
+    toString() {
+      // console.log('name:'+this.name+',color:'+this.color)
+      console.log(`name:${this.name};color:${this.color}`)
+    }
+  }
+
+  class Cat extends Animal {
+    constructor(action = 'catch') {
+      super();
+      this.action = action;
+    }
+
+    toString() {
+      console.log(super.toString())
+    }
+  }
+
+  window.onload = function () {
+
+    let str = '变量';
+    let test = `
+      <div>${str}</div>
+      <div>'文字'</div>
+    `;
+    $('.xia').html(test);
+    let {id, name} = $('.cb').data();
+    console.log('id', id);
+    console.log('name', name);
+    let arr = ['asd', 'qwe', 'zxc'];
+    let [ch1, ch2] = arr;
+    console.log('ch1', ch1);
+    console.log('ch2', ch2);
+    let jt = (x = 1, y = 1) => {
+      const a = x + y;
+      const b = x - y;
+      return a + b;
+    };
+    console.log('jt', jt(1, 3));
+
+    let animal = new Animal('xg', 'white');
+    animal.toString();
+    let cat = new Cat('catch');
+    cat.toString();
+
+    let obj = {
+      id: 123,
+      name: 'gx',
+    };
+    let ao = arr instanceof Array;
+    console.log('判断是否为数组',ao);
+
+    let names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
+    let nameNum = names.reduce((pre,cur)=>{
+      if(cur in pre){
+        pre[cur]++
+      }else{
+        pre[cur] = 1
+      }
+      return pre
+    },{});
+    console.log(nameNum);
+
+    let obj1 = {
+      name : 'zhangsan',
+    };
+    obj1.__proto__.name = 'lisi';
+    console.log('obj1',obj1.name);
+  };
+
+  let obj2 = {
+    name: 'zhangsan',
+    say:function () {
+      setTimeout(()=>{
+        console.log(this.name);
+      })
+    }
+  };
+  obj2.say();
+
+  let n = [4,15,7,13,23,56];
+  n.sort();
+  console.log(n);
+</script>
