@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>input上传文件预览</title>
+  <style>
+    input{
+      display: none;
+    }
+    .input-label{
+      width: 100px;
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3104686528,572431609&fm=26&gp=0.jpg" alt="" ondragstart="dragStar()">
+<input type="file" name="input" id="input" onchange="inputHandler()">
+<label for="input" class="input-label">上传文件</label>
+</body>
+<script>
+  window.onload = function () {
+    console.log('开始');
+  }
+  
+  function inputHandler() {
+
+  }
+  function dragStar() {
+
+  }
+</script>
+</html>
